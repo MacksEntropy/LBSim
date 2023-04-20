@@ -11,23 +11,24 @@ def calcCurl(ux,uy):
     return curl
 
 def simulateFluid():
-    # System Constants
-    Nx = 400
-    Ny = 100
-    tau = .6
-    steps = 4000
+
+    # Simulation Parameters
+    Nx = 400        # x resolution
+    Ny = 100        # y resolution
+    tau = .6        # collision time scale
+    steps = 4000    # numer of time steps
     
-    # Lattice parameters
+    # Lattice Parameters
     Nn = 9
     vxs = np.array([0,0,1,1,1,0,-1,-1,-1])
     vys = np.array([0,1,1,0,-1,-1,-1,0,1])
     weights = np.array([4/9, 1/9 , 1/36 , 1/9, 1/36 , 1/9, 1/36 , 1/9, 1/36])
     
-    #Initial Conditions of fluid F
+    #Initial Conditions
     F = np.ones((Ny,Nx,Nn)) + .01 * np.random.randn(Ny,Nx,Nn) # Need non-uniform values
     F[:,:,3] = 2.3 # Have fluid initially moving to the right
     
-    #Define obstacle, initially a cylinder
+    #Define obstacle
     obstacle = np.full((Ny,Nx), False)
     
     for y in range(Ny):
