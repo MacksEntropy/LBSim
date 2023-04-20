@@ -1,17 +1,21 @@
 import numpy as np
 import matplotlib.pyplot as plt
-import math
 
-plot_every = 50
 def distance(x1,x2,y1,y2):
     return np.sqrt((x2-x1)**2 + (y2-y1)**2)
+
+def calcCurl(ux,uy):
+    dfdx = ux[2:,1:-1] - ux[0:-2,1:-1]
+    dfxdy = uy[1:-1,2:] - uy[1:-1, 0:-2]
+    curl = dfdx - dfxdy
+    return curl
 
 def simulateFluid():
     # System Constants
     Nx = 400
     Ny = 100
-    tau = .53
-    steps = 3000
+    tau = .6
+    steps = 4000
     
     # Lattice parameters
     Nn = 9
@@ -61,9 +65,17 @@ def simulateFluid():
             Feq[:,:,i] = rho * w * (1 + 3 * (vx*ux + vy*uy) + 9 * (vx*ux + vy*uy)**2 / 2 - 3 * (ux**2 + uy**2)/2)
         
         F += -(1/tau) * (F-Feq)
-        
+
+        plot_every = 10
         if (step % plot_every == 0):
-            plt.imshow(np.sqrt(ux**2 + uy**2))
+
+            # Plot magnitude of momentum 
+            # plt.imshow(np.sqrt(ux**2 + uy**2)) 
+
+            # Plot vorticity
+            curl = calcCurl(ux,uy)
+            plt.imshow(curl, cmap="bwr")
+
             plt.pause(0.1)
             plt.cla()
 
