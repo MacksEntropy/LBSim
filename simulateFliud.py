@@ -15,8 +15,8 @@ def simulateFluid():
     # Simulation Parameters
     Nx = 400        # x resolution
     Ny = 100        # y resolution
-    tau = .6        # collision time scale
-    steps = 4000    # numer of time steps
+    tau = .53        # collision time scale
+    steps = 40000    # numer of time steps
     
     # Lattice Parameters
     Nn = 9
@@ -33,7 +33,7 @@ def simulateFluid():
     
     for y in range(Ny):
         for x in range(Nx):
-            if (distance(Nx//4, x, Ny//2, y) < 13): #Set position and size of obstacle
+            if (distance(Nx//4, x, Ny//2, y) < 15): #Set position and size of obstacle
                 obstacle[y][x] = True
                 
     # Main Loop
@@ -67,7 +67,7 @@ def simulateFluid():
         
         F += -(1/tau) * (F-Feq)
 
-        plot_every = 10
+        plot_every = 50
         if (step % plot_every == 0):
 
             # Plot magnitude of momentum 
