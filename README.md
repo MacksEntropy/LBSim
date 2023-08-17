@@ -1,4 +1,4 @@
-# Lattice Boltzmann fluid Simulation
+# Lattice Boltzmann Fluid Simulation
 
 The file simulateFluid.py contains an implementation of the Lattice Boltzmann Method on a mesh with a circular obstacle. 
 To run the code, clone the repo and then run `pipenv shell` to activate the virtual environment. The only dependencies are numPy and matplotlib.
