@@ -1,10 +1,12 @@
+from typing import List
+
 import numpy as np
 import matplotlib.pyplot as plt
 
-def distance(x1,x2,y1,y2):
+def distance(x1 : int, x2: int , y1: int , y2: int):
     return np.sqrt((x2-x1)**2 + (y2-y1)**2)
 
-def calcCurl(ux,uy):
+def calcCurl(ux : List[int] , uy : List[int]):
     dfdx = ux[2:,1:-1] - ux[0:-2,1:-1]
     dfxdy = uy[1:-1,2:] - uy[1:-1, 0:-2]
     curl = dfdx - dfxdy
