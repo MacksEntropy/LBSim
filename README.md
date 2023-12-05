@@ -1,9 +1,8 @@
-# Lattice Boltzmann fluid Simulation
+# Lattice Boltzmann Fluid Simulation
 
+## Final Output
 <p align="center">
   <img src="LBsim.gif" alt="animated_LBsim" />
 </p>
 
-The file simulateFluid.py contains an implementation of the Lattice Boltzmann Method on a mesh with a circular obstacle. 
-To run the code, clone the repo and then run `pipenv shell` to activate the virtual environment. The only dependencies are numPy and matplotlib.
-Feel free to mess around with the parameters or change the obstacle in the simulation. 
+Checkout the animation branch if you want the code that generates the video above. Note that the animation created by the code is very slow, the gif above is a screen recording that has been speed up significantly. 
