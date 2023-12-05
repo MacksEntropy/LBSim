@@ -1,7 +1,6 @@
 from typing import List
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
 
 class LBsim():
 
@@ -78,8 +77,7 @@ class LBsim():
                 # plt.imshow(np.sqrt(ux**2 + uy**2)) 
 
                 # Plot vorticity
-                curl = self.calcCurl(ux,uy)
-                plt.imshow(curl, cmap="bwr")
+                plt.imshow(self.calcCurl(ux,uy), cmap="bwr")
 
                 plt.pause(0.1)
                 plt.cla()
