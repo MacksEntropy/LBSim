@@ -16,4 +16,4 @@ A clear demonstration of the [von Kármán vortex street](https://en.wikipedia.o
   <img src="LBsim_v2.gif" alt="animated_LBsim" />
 </p>
 
-Use the fluidWithAnimation.py file if to get the video above. Note that the animation created by default is very slow, the gif above is a screen recording that has been speed up significantly.
+Note that the animation created by default using the fluidWithAnimation.py file is very slow, the gif above is a screen recording that has been sped up significantly.
